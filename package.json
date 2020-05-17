@@ -5,11 +5,13 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "db:bootstrap": "node ./scripts/bootstrap-fauna-database.js"
   },
   "dependencies": {
     "next": "9.4.1",
     "react": "16.13.1",
-    "react-dom": "16.13.1"
+    "react-dom": "16.13.1",
+    "faunadb": "2.13.1"
   }
 }
