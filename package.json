@@ -19,7 +19,7 @@
     "👇 ABOUT-faunadb-command": "💡 scaffold and setup FaunaDB #",
     "db:bootstrap": "export FAUNADB_SERVER_SECRET=$(cat '.key') && node ./scripts/bootstrap-fauna-database.js",
     "👇 ABOUT-start-command": "💡 start the app and server #",
-    "start": "npm run start:app && npm run start:server",
+    "start": "npm-run-all --parallel start:app start:functions",
     "start:app": "npm run next:dev",
     "start:functions": "npm run netlify:functions:serve",
     "👇 ABOUT-netlify-command": "💡 Netifly commands #",
@@ -35,6 +35,7 @@
     "node-fetch": "2.6.0"
   },
   "devDependencies": {
-    "netlify-lambda": "1.6.3"
+    "netlify-lambda": "1.6.3",
+    "npm-run-all": "4.1.5"
   }
 }

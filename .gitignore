@@ -14,6 +14,7 @@
 
 # production
 /build
+/functions-build
 
 # misc
 .DS_Store
@@ -31,3 +32,4 @@ yarn-error.log*
 
 # custom
 .key
+.vscode
