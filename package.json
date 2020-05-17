@@ -11,18 +11,30 @@
     }
   },
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "db:bootstrap": "node ./scripts/bootstrap-fauna-database.js"
+    "👇 ABOUT-nextjs-command": "💡 NextJS commands #",
+    "next:dev": "next dev",
+    "next:build": "next build",
+    "next:start": "next start",
+    "next:export": "next export",
+    "👇 ABOUT-faunadb-command": "💡 scaffold and setup FaunaDB #",
+    "db:bootstrap": "export FAUNADB_SERVER_SECRET=$(cat '.key') && node ./scripts/bootstrap-fauna-database.js",
+    "👇 ABOUT-start-command": "💡 start the app and server #",
+    "start": "npm run start:app && npm run start:server",
+    "start:app": "npm run next:dev",
+    "start:functions": "npm run netlify:functions:serve",
+    "👇 ABOUT-netlify-command": "💡 Netifly commands #",
+    "netlify:functions:serve": "export FAUNADB_SERVER_SECRET=$(cat '.key') && netlify-lambda serve functions -c ./webpack.config.js",
+    "netlify:functions:build": "export FAUNADB_SERVER_SECRET=$(cat '.key') && netlify-lambda build functions -c ./webpack.config.js",
+    "netlify:deploy": "npm run next:build && npm run netlify:functions:build && npm run next:export"
   },
   "dependencies": {
     "next": "9.4.1",
     "react": "16.13.1",
     "react-dom": "16.13.1",
-    "faunadb": "2.13.1"
+    "faunadb": "2.13.1",
+    "node-fetch": "2.6.0"
   },
   "devDependencies": {
-    "netlify-lambda": "^1.6.3"
+    "netlify-lambda": "1.6.3"
   }
 }
