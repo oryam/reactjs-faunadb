@@ -2,6 +2,14 @@
   "name": "reactjs-faunadb",
   "version": "0.1.0",
   "private": true,
+  "proxy": {
+    "/.netlify/functions": {
+      "target": "http://localhost:9000",
+      "pathRewrite": {
+        "^/\\.netlify/functions": ""
+      }
+    }
+  },
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -13,5 +21,8 @@
     "react": "16.13.1",
     "react-dom": "16.13.1",
     "faunadb": "2.13.1"
+  },
+  "devDependencies": {
+    "netlify-lambda": "^1.6.3"
   }
 }
