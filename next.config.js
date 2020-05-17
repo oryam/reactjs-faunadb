@@ -3,6 +3,7 @@ const serviceBaseUrl = process.env.SERVICE_BASE_URL ? process.env.SERVICE_BASE_U
 
 module.exports = {
   target: 'serverless',
+  distDir: 'build',
   publicRuntimeConfig: {
     prod,
     serviceBaseUrl

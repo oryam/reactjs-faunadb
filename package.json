@@ -26,7 +26,7 @@
     "👇 ABOUT-netlify-command": "💡 Netifly commands #",
     "netlify:functions:serve": "export FAUNADB_SERVER_SECRET=$(cat '.key') && netlify-lambda serve functions -c ./webpack.config.js",
     "netlify:functions:build": "export FAUNADB_SERVER_SECRET=$(cat '.key') && netlify-lambda build functions -c ./webpack.config.js",
-    "netlify:build": "export SERVICE_BASE_URL='https://oryam-reactjs-faunadb.netlify.app' && npm run next:build"
+    "netlify:deploy": "npm run next:build"
   },
   "dependencies": {
     "next": "9.4.1",
