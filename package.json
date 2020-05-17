@@ -11,6 +11,7 @@
     }
   },
   "scripts": {
+    "clean": "rm -rf out functions-build",
     "👇 ABOUT-nextjs-command": "💡 NextJS commands #",
     "next:dev": "next dev",
     "next:build": "next build",
@@ -25,7 +26,7 @@
     "👇 ABOUT-netlify-command": "💡 Netifly commands #",
     "netlify:functions:serve": "export FAUNADB_SERVER_SECRET=$(cat '.key') && netlify-lambda serve functions -c ./webpack.config.js",
     "netlify:functions:build": "export FAUNADB_SERVER_SECRET=$(cat '.key') && netlify-lambda build functions -c ./webpack.config.js",
-    "netlify:deploy": "npm run next:build && npm run netlify:functions:build && npm run next:export"
+    "netlify:build": "export SERVICE_BASE_URL='https://oryam-reactjs-faunadb.netlify.app' && npm run next:build"
   },
   "dependencies": {
     "next": "9.4.1",

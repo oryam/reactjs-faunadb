@@ -1,6 +1,7 @@
 import api from '../src/utils/todo.api'
+import Todos from '../src/components/todo.component'
 
-export class TodoComponent extends React.Component {
+export class TodosPage extends React.Component {
   constructor(props) {
     super(props);
   }
@@ -9,14 +10,13 @@ export class TodoComponent extends React.Component {
     return (
       <div>
         <h2>Todo list</h2>
-        <div>{todos.map((todo) => (
-          <div key={todo.ref['@ref'].id} data-id={todo.ref['@ref'].id}>{todo.data.title}</div>
-        ))}</div>
+        <Todos values={todos}></Todos>
       </div>
     );
   }
 }
 
+// export async function getStaticProps() {
 export async function getServerSideProps() {
   const todos = await api.list();
 
@@ -27,4 +27,4 @@ export async function getServerSideProps() {
   }
 }
 
-export default TodoComponent;
+export default TodosPage;

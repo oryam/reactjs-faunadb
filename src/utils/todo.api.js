@@ -1,9 +1,11 @@
 /* Api methods to call /functions */
+import getConfig from 'next/config'
+const { publicRuntimeConfig } = getConfig()
 
-import config from '../../config/server.config'
+const base = publicRuntimeConfig.serviceBaseUrl;
 
 const createTodo = (data) => {
-  return fetch(`${config.ServerConfig.baseUrl}/.netlify/functions/todos-create`, {
+  return fetch(`${base}/.netlify/functions/todos-create`, {
     body: JSON.stringify(data),
     method: 'POST'
   }).then(response => {
@@ -12,13 +14,13 @@ const createTodo = (data) => {
 }
 
 const readAllTodos = () => {
-  return fetch(`${config.ServerConfig.baseUrl}/.netlify/functions/todos-read-all`).then((response) => {
+  return fetch(`${base}/.netlify/functions/todos-read-all`).then((response) => {
     return response.json()
   })
 }
 
 const updateTodo = (todoId, data) => {
-  return fetch(`${config.ServerConfig.baseUrl}/.netlify/functions/todos-update/${todoId}`, {
+  return fetch(`${base}/.netlify/functions/todos-update/${todoId}`, {
     body: JSON.stringify(data),
     method: 'POST'
   }).then(response => {
@@ -27,7 +29,7 @@ const updateTodo = (todoId, data) => {
 }
 
 const deleteTodo = (todoId) => {
-  return fetch(`${config.ServerConfig.baseUrl}/.netlify/functions/todos-delete/${todoId}`, {
+  return fetch(`${base}/.netlify/functions/todos-delete/${todoId}`, {
     method: 'POST',
   }).then(response => {
     return response.json()
@@ -35,7 +37,7 @@ const deleteTodo = (todoId) => {
 }
 
 const deleteTodos = (todoIds) => {
-  return fetch(`${config.ServerConfig.baseUrl}/.netlify/functions/todos-delete-batch`, {
+  return fetch(`${base}/.netlify/functions/todos-delete-batch`, {
     body: JSON.stringify({
       ids: todoIds
     }),
