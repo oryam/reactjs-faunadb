@@ -16,8 +16,8 @@ export class TodosPage extends React.Component {
   }
 }
 
-// export async function getStaticProps() {
-export async function getServerSideProps() {
+export async function getStaticProps() {
+// export async function getServerSideProps() {
   const todos = await api.list();
 
   return {

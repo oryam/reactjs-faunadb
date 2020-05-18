@@ -11,7 +11,7 @@
     }
   },
   "scripts": {
-    "clean": "rm -rf build out functions-build build-functions",
+    "clean": "rm -rf build out build-functions",
     "👇 ABOUT-nextjs-command": "💡 NextJS commands #",
     "next:dev": "next dev",
     "next:build": "next build",
@@ -26,7 +26,7 @@
     "👇 ABOUT-netlify-command": "💡 Netifly commands #",
     "netlify:functions:serve": "export FAUNADB_SERVER_SECRET=$(cat '.key') && netlify-lambda serve src/functions -c ./webpack.config.js",
     "netlify:functions:build": "export FAUNADB_SERVER_SECRET=$(cat '.key') && netlify-lambda build src/functions -c ./webpack.config.js",
-    "netlify:deploy": "next build && netlify-lambda build src/functions -c ./webpack.config.js"
+    "netlify:deploy": "next build && next export && netlify-lambda build src/functions"
   },
   "dependencies": {
     "encoding": "0.1.12",
